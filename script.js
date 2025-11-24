@@ -95,6 +95,7 @@ function checkWin() {
   if (isSolved) {
     stopTimer();
     messageEl.classList.remove("hidden");
+    alert("You won!");
   }
 }
 
