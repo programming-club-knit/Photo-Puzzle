@@ -5,11 +5,26 @@ const timerEl = document.getElementById("timer");
 const movesEl = document.getElementById("moves");
 const messageEl = document.getElementById("message");
 
+function show(){
+    let image=document.getElementById("image");
+
+document.getElementById("origin").addEventListener("click",(e)=> {
+    image.src="https://picsum.photos/600";
+})
+ timer();
+ function timer(){
+    setTimeout(()=>{
+        image.src="";
+        
+    },3000);
+}
+}
+
 let tiles = [];
 let timer = 0;
 let moves = 0;
-let hasStated = false;
 let interval = null;
+
 
 
 init();
@@ -22,7 +37,7 @@ function init() {
 
   
 shuffleBtn.addEventListener("click", () => {
-
+  timer = 0;
   moves = 0;
   timerEl.textContent = timer;
   movesEl.textContent = moves;
@@ -122,12 +137,10 @@ function checkWin() {
 
 
 function startTimer() {
-  if(hasStated) return;
   interval = setInterval(() => {  
     timer++;
     timerEl.textContent = timer;
   }, 1000);
-  hasStated=true
 }
 
 function stopTimer() {
